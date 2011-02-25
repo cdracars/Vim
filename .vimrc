@@ -34,7 +34,9 @@ set hidden
 
 "Set the color scheme. Change this to your preference.
 "Here's 100 to choose from: http://www.vim.org/scripts/script.php?script_id=625
+if has("gui_running")
 colorscheme twilight
+endif
 
 "Set font type and size. Depends on the resolution. Larger screens, prefer h20
 set guifont=Menlo:h12
