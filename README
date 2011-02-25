@@ -1,0 +1,4 @@
+In order to use this setup you will need to create a .vimrc file in your home directory that contains:
+
+" Load the first file named 'vimrc' found in runtimepath
+runtime vimrc
