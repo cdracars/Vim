@@ -50,6 +50,8 @@
 	set virtualedit=onemore 	   	" allow for cursor beyond last character
 	set history=1000  				" Store a ton of history (default is 20)
 	set spell 		 	        	" spell checking on
+	set hidden
+	
 	
 	" Setting up the directories {
 		set backup 						" backups are nice ...
@@ -103,7 +105,6 @@
 	set incsearch					" find as you type search
 	set hlsearch					" highlight search terms
 	set winminheight=0				" windows can be 0 line high 
-	set ignorecase					" case insensitive search
 	set smartcase					" case sensitive when uc present
 	set wildmenu					" show list instead of just completing
 	set wildmode=list:longest,full	" comand <Tab> completion, list matches, then longest common part, then all.
