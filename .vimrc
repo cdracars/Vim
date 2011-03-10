@@ -159,7 +159,7 @@
 	"Saves time; maps the spacebar to colon
     nmap <space> :
 
-	"Map escape key to ;; -- much faster
+	"Map escape key to jj -- much faster
     imap jj <esc>
 
 	" Easier moving in tabs and windows
