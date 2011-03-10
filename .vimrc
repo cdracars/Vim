@@ -50,8 +50,6 @@
 	set virtualedit=onemore 	   	" allow for cursor beyond last character
 	set history=1000  				" Store a ton of history (default is 20)
 	set spell 		 	        	" spell checking on
-	set hidden
-	
 	
 	" Setting up the directories {
 		set backup 						" backups are nice ...
@@ -105,6 +103,7 @@
 	set incsearch					" find as you type search
 	set hlsearch					" highlight search terms
 	set winminheight=0				" windows can be 0 line high 
+	set ignorecase					" case insensitive search
 	set smartcase					" case sensitive when uc present
 	set wildmenu					" show list instead of just completing
 	set wildmode=list:longest,full	" comand <Tab> completion, list matches, then longest common part, then all.
@@ -125,13 +124,14 @@
 " .vimrc Editing {
 
     "Shortcut for editing  vimrc file in a new tab
-    nmap <leader>v :tabedit $MYVIMRC<cr>
+    nmap <leader><leader> :tabedit $MYVIMRC<cr>
 	
 	" Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
     if has("autocmd")
      augroup myvimrchooks
       au!
-      autocmd bufwritepost .vimrc source ~/.vimrc
+       autocmd bufwritepost .vimrc source ~/.vimrc
+       autocmd bufwritepost .vimrc source ~/.vim/.vimrc
      augroup END
         endif
 
@@ -160,7 +160,7 @@
     nmap <space> :
 
 	"Map escape key to ;; -- much faster
-    imap ;; <esc>
+    imap jj <esc>
 
 	" Easier moving in tabs and windows
 	map <C-J> <C-W>j<C-W>_
@@ -291,7 +291,7 @@
 
 		" some convenient mappings 
 		inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-		inoremap <silent> <Esc> <C-r>=pumvisible() ? "\<C-y>" : "\<Esc>"<CR>
+		inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 		inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 		inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 		inoremap <expr> <C-d>	   pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
@@ -333,9 +333,9 @@
 		nnoremap ,smr <esc>:exec ReloadAllSnippets()<cr>
 	" }
 
-	"MRU {
-	nnoremap ,m = :MRU<cr>
-	"}
+	" MRU {
+		nmap ,m = :MRU<CR>
+	" }
 
 	" NerdTree {
 		map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
@@ -372,7 +372,7 @@
         
 		" LustyJuggler {
 			nmap <leader>b :LustyJuggler<CR>
-        "}		
+        " }
 
 		" VCS commands {
 			nmap <leader>vs :VCSStatus<CR>
